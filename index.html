@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div id="entry-popup" class="popup-overlay">
+  <div class="dialog-wrapper">
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content" id="dialogContent">
+        <p>Hi cutiee 🎀 <br>Let me first give you some instructions!</p>
+        <button id="popup-next" style="font-size: larger; margin-top: -2%;">Okka!</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+  </div>
+  
+</div>
+
+<!-- 🌟 GLOBAL TOP BAR -->
+<div id="topBar">
+  <img src="assests/back.png" id="backBtn" class="top-icon" alt="Back" />
+  <img src="assests/music_on.png" id="musicToggle" class="top-icon" alt="Music Toggle" />
+  <audio id="bgMusic" src="audios/bgm.mp3" loop></audio>
+</div>
+
+<div id="pageContent" class="scene">
+  <div class="container">
+    
+    <!-- 🎉 Two diagonal banners -->
+    <img src="assests/banner.png" alt="Banner left" class="banner banner-left">
+    <img src="assests/banner.png" alt="Banner right" class="banner banner-right">
+
+    <div id="birthdayText">
+  <div id="mainTitle"><img src="assests/bday.png"/></div>
+    <div id="subTitle">Make a wish and blow candles.</div>
+    </div>
+
+    <div class="cake-container">
+      <img src="assests/pixel-cake.png" class="cake-img" alt="Pixel cake" />
+      <div class="cake" id="cake"></div>
+
+    </div>
+  </div>
+        <div id="balloonContainer"></div>
+</div>
+
+
+  <canvas id="confettiCanvas"></canvas>
+<dialog id = "birthdayDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p>Were you able to blow the candles?</p>
+        <button id="yesBtn">Yaya</button>
+        <button id="noBtn">NAWWW</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+  <dialog id="hawwDialog">
+  <div class="dialog-wrapper">
+    <img class="catcry" src="assests/crying-cat.png" alt="Cat crying">
+
+    <div class="naw-dialog-box" >
+      <!-- Cat body -->
+
+      <div class="naw-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+      <div id="hawwAnimationContainer" class="naw-dialog-content">
+        <p>How can you say THAT????</p>
+        <img id="hawwFrame" src="assests/h4.png" alt="Animation Frame" />
+        <p>GO SAY OKKA</p>
+        <button class="play-btn" style="background-color: #ffefdd; border: none;"></button><br>
+      <button id="hawwOkBtn">Yes Ma'am!</button>
+      </div>
+    
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+  </div>
+  </dialog>
+
+
+  <dialog id="nawDialog">
+  <div class="dialog-wrapper">
+    <img class="catcry" src="assests/crying-cat.png" alt="Cat crying">
+
+    <div class="naw-dialog-box" >
+      
+
+      <div class="naw-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+      <div class="naw-dialog-content">
+        <p>Hehe Sowryy! I tried to fix it but the candle blow code a lil faulty. <br>
+        Relight the candles and make your wish.<br>
+        <span class="play-btn"></span></p>
+        <button id="retryBtn">Retry</button>
+      </div>
+    
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+  </div>
+  </dialog>
+
+
+<dialog id="celebrationDialog">
+  <div class="dialog-wrapper">
+  <img class="catheart" src="assests/heart-cat.png" alt="Heart Cat">
+
+  <div class="celeb-dialog-box">
+
+    <div class="celeb-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+    <div class="celeb-dialog-content">
+    <p><span class="celeb-heading"> Happy Birthday!!! </span> <br>
+    my sweet bby, wishing you a purrfect day.
+      <br> <span id="musicBtn" class="play-btn"></span></p>
+    
+    <!-- Audio Controls -->
+    <audio id="birthdaySong" src="audios/bday.m4a"></audio>
+
+    <div class="celebration-buttons">
+      <button id="eatCakeBtn">Bs chup kr, besuri...</button>
+    </div>
+    </div>
+  </div>
+
+  <div class="cat-tail-wrapper">
+    <div class="cat-tail"></div>
+  </div>
+  </div>
+</dialog>
+
+  <div id="pageContent2"class="scene hidden">
+    <div class="container">
+      <div id="cake-text"> <p>Here, have a slice sir.</p></div>
+
+      <div class="cake-container">
+        <img src="assests\cake-slice.png" class="cake-img slice-cake" id="cake_Slice" alt="Pixel cake" />
+        <div class="cake" id="cake"></div>
+        <button id="eatBtn" class="pixel-btn" style="margin-top: 10%;">Yum Yummm </button>
+      </div>
+    </div>
+  </div>
+
+<div id="catScene" class="scene hidden">
+  
+  <div class="cat-scene-wrapper">
+    <p id="cake-text"> Anddd I'll eat the rest of it. HEHEHE</p>
+    <div class="cat-scene">
+      <img id="catFrame" src="assests/cat-open.png" alt="Cat open mouth" style="z-index: 2;" class="pixel-cat" />
+      <img id="cakeleft" src="assests/cake-left.png" style="z-index: 1;" alt="Cake slice" class="pixel-cake-slice" />
+    </div>
+
+    <div class="scene-buttons">
+      <button id="yumBtn" class="pixel-btn">Yum Yummm </button>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 🌸 Flower Scene -->
+<div id="flowerScene" class="muscle-scene hidden">
+  <div class="muscle-scene-caption">The kitty saved a flower just for you!!</div>
+  <div id="flowerBtn" class="play-btn"></div>
+    
+    <!-- Audio Controls -->
+    <audio id="floweraudio" src="assests/audio.mp3"></audio>
+  <div class="image-container">
+    <img id="kittyFlower" src="assests/kitty_flower.png"  alt="Kitty with flower" />
+  </div>
+  <button id="takeFlowerBtn" class="pixel-btn">Take the flower 🌸</button>
+</div>
+
+<!-- 💪 Muscle Scene -->
+<div id="muscleScene" class="muscle-scene hidden">
+  <div id="muscleCaption" class="muscle-scene-caption">Can I put the flower on you?</div>
+  <div id="prettyBtn" class="play-btn hidden"></div>
+  <div class="image-container">
+    <img id="muscleImg" src="assests/pumpcess_before2.png" alt="Muscle princess" />
+  </div>
+  
+    <!-- Audio Controls -->
+    <audio id="prettyaudio" src="assests/audio.mp3"></audio>
+  <button id="putFlowerBtn" class="pixel-btn">Yes 💖</button>
+  <button id="giftBtn" class="pixel-btn hidden">Want Gifts? 🎁</button>
+</div>
+
+
+<dialog id = "giftDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p>Uh uh... what's the hurry?<br> To get yo gifts, you have to go to an adventure and complete 3 challenges.<br> Every challenge will unlock a gift.<br>Be ready for something in...</p>
+        <button id="mysteryBtn">?????</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+
+
+<div id="countdownOverlay" class="hidden">
+  <img id="countdownImage" src="assests/3.png" alt="Countdown number" />
+</div>
+
+<div id="kissGame" class="scene hidden">
+  <h2 class="kiss-heading" style="color: rgb(172, 84, 121);"> Collect the Kisses!</h2>
+  <p>Beware of the dawg!!<br> (Do try it once tho hehe)</p>
+  <div class="kiss-header" style="font-weight: bold";>
+    <div id="timerDisplay">Time: 30s</div>
+    <div id="kissCount">Kisses: 0</div>
+  </div>
+   <div id="kissArea"></div>
+  <button id="endGameBtn" class="pixel-btn end-btn">Enough for now</button>
+</div>
+
+
+<dialog id = "kissResultDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p id="kissResultText"></p>
+        <button id="closeKissDialog">Okkaa</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+<div id="superheroGame" class="scene hidden">
+  <h2 class="game-title">Superhero Match</h2>
+    <div id="heroaudioBtn" class="play-btn"></div>
+    
+    <!-- Audio Controls -->
+    <audio id="floweraudio" src="assests/audio.mp3"></audio>
+  <p id="inst">Flip the cards and match the superheroes!</p>
+
+  <div class="card-grid">
+    <!-- Cards will be generated dynamically with JS -->
+  </div>
+</div>
+
+<dialog id = "heroResultDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p>Woahh you cleared the second challenge.<br> You unlocked yo 2nd gift!! Just one more to go!!</p>
+        <button id="closeHeroDialog">Yayyy</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+  <div id="spidermanScene" class="spidyscene hidden">
+  <div class="spiderman-container">
+    <img src="assests\hang-spider.png" alt="Hanging Spiderman" class="spiderman-img" />
+    <p class="spiderman-caption">
+      A Spiderman kiss to get to the next challenge.<br>
+      <span class="wink">(I’m wearing the Spiderman suit ^3^)</span>
+    </p>
+    <div class="spiderman-buttons">
+      <button id="laterBtn">You'll get that as return gift</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="cupGame" class="scene hidden">
+  <h2 class="kiss-heading" style="color: rgb(172, 84, 121); margin-top: 5px;">Catch yo Pokémon!</h2>
+      <div id="pokeaudioBtn" class="play-btn"></div>
+    
+    <!-- Audio Controls -->
+    <audio id="floweraudio" src="assests/audio.mp3"></audio>
+
+  <!-- 🎀 Light pink dashed box wrapping status + cups + buttons -->
+  <div class="cup-wrapper-box">
+    <p id="cupStatusMsg">Click on shuffle button!</p>
+
+    <div id="cupArea" class="cup-area">
+      <div id="cupA" class="cup">
+        <img src="assests/cup.png" alt="Cup" class="cup-img">
+        <img src="assests/treat1.png" alt="Treat" class="treat hidden" id="treatA">
+      </div>
+      <div id="cupB" class="cup">
+        <img src="assests/cup.png" alt="Cup" class="cup-img">
+        <img src="assests/treat2.png" alt="Treat" class="treat hidden" id="treatB">
+      </div>
+      <div id="cupC" class="cup">
+        <img src="assests/cup.png" alt="Cup" class="cup-img">
+        <img src="assests/treat3.png" alt="Treat" class="treat hidden" id="treatC">
+      </div>
+      <div id="cupD" class="cup">
+        <img src="assests/cup.png" alt="Cup" class="cup-img">
+        <img src="assests/treat4.png" alt="Treat" class="treat hidden" id="treatD">
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="easyBtn">Easy</button>
+      <button id="hardBtn">Hard</button>
+    </div>
+  </div>
+
+  <button id="startShuffleBtn">Start Shuffle</button>
+</div>
+
+
+<!-- Treat popup -->
+<div id="treatPopup" class="hidden">
+  <div class="popup-content">
+    <img id="popupImage" src="" alt="Treat" />
+    <button id="popupButton"></button>
+  </div>
+</div>
+
+<div id="giftBackdrop" class="hidden">
+  <div id="giftText" class="hidden">You found a Magical Lamp!</div>
+  <div id="giftContainer">
+    
+    <img id="giftImage" src="assests/gift1.png" alt="Gift" />
+    <img id="giftLid" src="assests/gift-lid.png" alt="Gift Lid" class="hidden" />
+    <img id="giftReveal" src="assests/lamp.png" alt="Gift Reveal" class="hidden" />
+    
+    <button id="giftButton" class="hidden">Continue</button>
+  </div>
+</div>
+<dialog id="lampDialog">
+  <div class="dialog-wrapper">
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging" />
+
+    <div class="ya-dialog-box">
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p>You found a magical lamp!!! Do you know what we do with it?</p>
+        <button id="rubLampBtn">Rub it?</button>
+      </div>
+    </div>
+
+    <div class="cat-tail-wrapper">
+      <div class="cat-tail"></div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ✅ Only one genieScene -->
+<div id="genieScene" class="scene hidden">
+  <div class="lamp-genie-wrapper">
+    <!-- Dialogue bubble -->
+    <div id="genieDialog" class="pixel-dialog hidden genie-bubble">
+      <p>Thank you for freeing me! I’ve been trapped for centuries!</p>
+    </div>
+
+    <!-- Lamp and Genie -->
+    <div class="lamp-genie-container">
+      <img id="lampImg" class="lamp" src="assests/lamp.png" alt="Magic Lamp" />
+      <img id="genieImg" src="assests/genie.png" alt="Genie" />
+    </div>
+
+    <!-- Response button -->
+    <button id="responseBtn" class="pixel-btn hidden bottom-right">
+      Whoa! Really?
+    </button>
+  </div>
+</div>
+
+<dialog id = "geniefinalDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <p>YAYYYYYY!!! <br> You found all yo gifts!!! <br> Enjoy! </p>
+        <button id="closegeniefinalDialog">Yeshh Hehehe</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+
+<!-- 🌟 Icon Scene -->
+<div id="iconScene" class="scene hidden">
+  <h2 class="icon-heading">Choose Your Magical Gift</h2>
+
+  <div class="icon-container">
+    <div class="icon-item" id="musicGift">
+      <img src="assests/songs.png" alt="Music Icon" class="icon-img">
+      <p>Music</p>
+    </div>
+
+    <div class="icon-item" id="cameraGift">
+      <img src="assests/photos.png" alt="Camera Icon" class="icon-img">
+      <p>Camera</p>
+    </div>
+
+    <div class="icon-item" id="mailGift">
+      <img src="assests/letter.png" alt="Mail Icon" style="height: 115px;" class="letter-img icon-img ">
+      <p>Mail</p>
+    </div>
+  </div>
+</div>
+
+<dialog id = "songsDialog">
+<div class="dialog-wrapper" >
+    <img class="cat" src="assests/hanging-cat.png" alt="Cat hanging">
+
+    <div class="ya-dialog-box">
+      <!-- Cat body -->
+
+      <div class="ya-dialog-header">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+
+      <div class="ya-dialog-content">
+        <h2> Disclaimer</h2>
+        <p>Listen at your own risk!</p>
+        <div id="disclaimerBtn" class="play-btn"></div>
+
+    <audio id="floweraudio" src="assests/audio.mp3"></audio>
+        <button id="closedisclaimerDialog">I'm scared</button>
+      </div>
+    </div>
+    <!-- Cat tail -->
+     <div class="cat-tail-wrapper">
+     <div class="cat-tail">
+     </div> 
+    </div>
+    </div>
+  </dialog>
+
+<div class="scene overlay hidden" id="musicOverlay">
+  <h2 class="letter-heading">
+    Songs..<span id="songaudioBtn" class="play-btn"></span>
+    <br><span style="font-size: 1.5rem;">(kind of.. uh idk)</span>
+  </h2>
+
+  <p class="letter-caption">Use next and prev button to switch between songs. <br> You can turn off bgm.</p>
+
+  <div class="player" id="musicPlayer">
+    <div class="cover">
+      <img src="assests\cover1.gif" id="cover-img" alt="Album Cover">
+    </div>
+
+    <input type="range" class="seekbar" value="0" id="seekbar">
+
+    <div class="control-btns">
+      <button id="prev" class="icon-btn prev">
+        <img src="assests/left.png" alt="Previous">
+      </button>
+
+      <button id="play-pause" class="icon-btn play">
+        <img id="play" src="assests/pause.png" alt="Play/Pause">
+      </button>
+
+      <button id="next" class="icon-btn next">
+        <img src="assests/right.png" alt="Next">
+      </button>
+    </div>
+
+    <div class="song-title">
+      <img src="assests/bar.png" style="width: 100%; display: block;">
+    </div>
+  </div>
+  <p class="letter-caption">Use back btn on top to go back.</p>
+</div>
+
+<!-- Single Audio Element -->
+<audio id="audio"></audio>
+
+<!-- 💌 Letter Scene -->
+<div id="letterScene" class="scene hidden">
+  <h2 class="letter-heading">A Letter To You</h2>
+  <p class="letter-caption">Scroll down to read...</p>
+
+  <div class="letter-container">
+    <img src="assests/textbox.png" alt="Textbox Background" class="letter-bg" />
+
+    <div class="letter-content">
+      <p>
+        Hi my sweet bby! It's a letter so no vn yaa.
+I hope you won't find this and everything else cringe or anything. It's just the only way I could celebrate you on yo birthday. 
+      </p>
+      <p>
+You're the sweetest most lovable cutest person ever (seggsy, with muscles). There were sooo many times where what you did or what you said or just you being curious and accepting and being attentive. All these things felt like a comforting hug and the more you did it the more the hug felt tighter. 
+And you're so sweeet i swear you listen to everything i say so attentively like damn who are you? A  man??? What kind? 
+      </p>
+
+      <p>
+Idk what it is but there's juz something in you that I just can't get enough of. Like i can talk to you for straight 24 hrs. I love everything about you the vibe the way you behave playful sometimes, super sweet and flirty other times. I just love both. 
+Also you just understand. Idk how else to explain it but you just do. You're purrfect-1 
+      </p>
+      <p>
+Andd i appreciate how dedicated you are towards anything you do. Gym work family just everything. I don't remember the word.. committed ig. Ya mtlb aive vaive ni. Krre to dhng se krte. That's a great thing. 
+</p>
+      <p>
+I might not show it but I really appreciate you not looking at other women even in reels. You don't even talk about anyone even mazak me to make me jealous or anything. I love that you're focused hehe. A gentleman fr. 
+      </p>
+      <p>
+You support me sm in everything. I'm always so confident and motivated bcoz of that. It really helps me. Every lil details you pay attention to. All those reminders to not fek up my streak. Workout walk diet.. dat pdti but at least I'm taking care of my health bcoz of you. Youre 1000+ kms away still you're taking care of me so well. 
+The way you always want to listen that excitement in my voice whenever I'm happy.
+The way you want to know everything even a teeny tiny thing going through my head and exactly what i was feeling while doing something..  Just how precious. 
+      </p>
+            <p>
+I wish you live a very happy, peaceful and adventurous and travel vli life with sweet people who help you grow and prosper. And that you get very successful and buy me a bmw and 3 4 supercars and bikes (gold digger alert hahha) 
+I'll buy you beyblades, pokemon, power rangers, marvel and g wagon okkaa. 
+      </p>
+      <p>
+Enjoy yo day to the fullest my bbydoll. You deserve all the happiness in the world. I'm so glad to have you in my life. Thank you for being you 🎀
+      </p>
+    </div>
+  </div>
+  <p class="letter-caption">Use back btn on top to go back.</p>
+</div>
+
+<!-- polaroidScene.html -->
+<div class="polaroid-scene hidden" id="polaroidScene">
+  <div class="polaroid-header">
+    <h1 class="polaroid-heading">Echo Memories</h1>
+    <p class="polaroid-caption">Flip through your magical moments!</p>
+  </div>
+
+  <div class="polaroid-stack" id="polaroidStack">
+    <img src="assests/polaroid1.png" alt="Polaroid 1" class="polaroid active">
+    <img src="assests/polaroid2.png" alt="Polaroid 2" class="polaroid">
+    <img src="assests/polaroid3.png" alt="Polaroid 3" class="polaroid">
+    <img src="assests/polaroid4.png" alt="Polaroid 4" class="polaroid">
+    <img src="assests/polaroid5.png" alt="Polaroid 5" class="polaroid">
+    <img src="assests/polaroid6.png" alt="Polaroid 6" class="polaroid">
+  </div>
+  <p class="letter-caption">Use back btn on top to go back.</p>
+</div>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
