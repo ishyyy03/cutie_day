@@ -868,7 +868,7 @@ function spawnKisses() {
       setTimeout(() => img.remove(), 200);
     });
 
-    setTimeout(() => img.remove(), 500);
+    setTimeout(() => img.remove(), 600);
   }, 1500);
 }
 
@@ -1746,5 +1746,6 @@ function showNextPhoto() {
 
   polaroidStack.addEventListener('click', showNextPhoto);
 }
+
 
 
