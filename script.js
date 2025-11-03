@@ -366,7 +366,7 @@ async function startMicDetection() {
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     let lastTrigger = 0;
-
+    const subTitle = document.getElementById("subTitle");
     function detectBlow() {
       if (!isDetecting) return;
       analyser.getByteFrequencyData(dataArray);
@@ -380,13 +380,20 @@ async function startMicDetection() {
 
       const now = performance.now();
       // --- tuned threshold (experiment between 35–45) ---
+
       if (average > 85 && now - lastTrigger > 1000) {
         console.log("Blow detected, avg:", average);
         if (candlleslit) {
+          subTitle.textContent = 'Yayyyyyyy!!!'
           blowOutCandles();
           stopMicDetection();
           lastTrigger = now;
+          
+
         }
+      }else if(average > 65 && average<85 && now - lastTrigger > 1000){
+        console.log("Blow detected, avg:", average);
+        subTitle.textContent = 'tch tch bunty hawa ni h pet me? \n zor se'
       }
 
       requestAnimationFrame(detectBlow);
@@ -406,13 +413,14 @@ function blowOutCandles() {
     const delay = Math.random() * 1000; 
     delays.push(delay); 
     setTimeout(() => candle.classList.add("blown"), delay); 
+    launchPixelConfetti();
   }); 
   const maxDelay = Math.max(...delays); 
   setTimeout(() => { showBirthdayDialog(); 
     if (typeof birthdayDialog.showModal === "function") { 
       birthdayDialog.showModal(); 
-      launchPixelConfetti(); } }, 
-      maxDelay + 500); 
+       } }, 
+      maxDelay + 1500); 
     }
 function stopMicDetection() {
   
@@ -622,7 +630,7 @@ function showCatScene() {
   cakeleft.style.animation = "moveCake 2.5s ease forwards";
   const munch = new Audio("audios/yumyum.m4a");
   munch.play();
-
+  yumBtn.classList.add("hidden");
   setTimeout(() => {
     catFrame.src = "assests/cat-close.png";
     setTimeout(() => {
@@ -631,7 +639,7 @@ function showCatScene() {
   }, 1000);
 
   setTimeout(() => {
-    yumBtn.classList.add("hidden");
+    
     // Instead of showing giftBtn, go to flower scene
     showFlowerScene();
   }, 3000);
@@ -823,7 +831,7 @@ function startKissGame() {
 function spawnKisses() {
   kissInterval = setInterval(() => {
     // Decide randomly whether to spawn a kiss or bomb
-    const isBomb = Math.random() < 0.25; // ~15% chance bomb appears
+    const isBomb = Math.random() < 0.3; // ~15% chance bomb appears
     const img = document.createElement("img");
     img.className = "kiss";
 
@@ -852,11 +860,11 @@ function spawnKisses() {
         kissCountDisplay.textContent = `Kisses: ${kissCount}`;
       }
 
-      setTimeout(() => img.remove(), 300);
+      setTimeout(() => img.remove(), 200);
     });
 
-    setTimeout(() => img.remove(), 700);
-  }, 900);
+    setTimeout(() => img.remove(), 500);
+  }, 1500);
 }
 
 // 🔊 Play sequential kiss sounds (0 once, then loop 1–10)
@@ -1465,7 +1473,7 @@ function startGenieScene() {
     { text: "Great!! I'll unlock your 3rd gift!", button: "Let’s gooo!" },
     { text: "Ah ah.. before you go, take your wish", button: "i wish for...." },
     { text: "Ayyy? What you think of me man? Ik yo wish already. im a pro at this. ", button: "Dayumm what is it?" },
-    { text: "See. Told ya I'm a pro.\n Your wish will be granted. Now go to your gifts.", button: "On it!" }
+  { text: "See <img src=\"assests/wish.jpeg\" alt=\"gift\" style=\"height:30px;vertical-align:middle;margin:0 6px;border-radius:16px;\" /><br>Told ya I'm a pro.\n Your wish will be granted. Now go to your gifts.", button: "On it!" }
   ];
 
   let step = 0;
