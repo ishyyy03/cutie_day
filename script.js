@@ -1,3 +1,8 @@
+window.addEventListener("popstate", function(event) {
+  event.preventDefault();
+  alert("Use site back button. but site ka back button only works at gifts section. hehehe");
+});
+
 let candlleslit = true;
 
 const dialogContent = document.getElementById("dialogContent");
@@ -1741,4 +1746,5 @@ function showNextPhoto() {
 
   polaroidStack.addEventListener('click', showNextPhoto);
 }
+
 
