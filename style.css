@@ -61,7 +61,7 @@ body {
 
 /* 🌼 Captions */
 .muscle-scene-caption {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #000000;
   text-shadow: 1px 1px 2px rgba(255, 200, 230, 0.6);
   animation: slideDown 0.8s ease;
@@ -238,8 +238,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
+  padding-bottom: 40px;
   text-align: center;
   background: transparent;
   overflow: hidden;
@@ -493,7 +494,9 @@ body {
 /* 💌 LETTER SCENE STYLING */
 #letterScene {
   text-align: center;
-  padding: 80px 8px 40px; /* top padding increased to push heading down */
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
   background: transparent;
   width: 100vw; /* use full viewport width safely */
   min-height: 100vh;
@@ -609,8 +612,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 30px;
-  
-  width: 280px; /* rectangle shape */
+  width: 66vw;
+  max-width: 500px;
   min-height: 500px; /* adjust for balance */
   backdrop-filter: blur(5px);           /* ✅ add this */
   -webkit-backdrop-filter: blur(5px);
@@ -638,7 +641,8 @@ body {
 .icon-img {
   height: 100px;
   margin-bottom: 8px;
-  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0 15px rgba(168, 79, 156, 0.9)); /* Purple glow */
+  transition: 0.3s;
   transition: transform 0.3s ease;
 }
 
@@ -664,7 +668,7 @@ body {
       background: #e9d5ff;
       border-radius: 20px;
       padding: 25px;
-      max-width: 400px;
+      max-width: 300px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       text-align: center;
       margin: 5%;
@@ -781,7 +785,7 @@ body {
 }
 
 .pixel-btn { 
-  background-color: #ffb6c1; 
+  background-color: #ff69b4; 
   border: 2px solid #ff69b4; 
   color: #fff;
   font-size: 0.8rem; 
@@ -789,6 +793,7 @@ body {
   cursor: pointer; 
   transition: all 0.2s ease; 
   text-transform: uppercase; 
+  font-weight: bold;
 } 
 .pixel-btn:hover { 
   background-color: #ff69b4; 
@@ -801,11 +806,12 @@ body {
   display: flex;
   justify-content: center;
   align-self: center;
-  align-items: flex-end;
+  align-items: center;
   height: 80vh;
   width: 100%;
   background: transparent;
   overflow: hidden;
+  padding-top: 30%;
 }
 
 /* Central wrapper for genie, lamp, and dialogue */
@@ -1100,8 +1106,8 @@ body {
   display: none;
 }
 .dialog-wrapper {
-  width: 95%;
-  max-width: 300px;
+  width: 80vw;
+  max-width: 500px;
   position: relative;
   margin: 0 auto;
   display: flex;
@@ -1109,7 +1115,10 @@ body {
   align-items: center; /* centers children horizontally */
   animation: pixelPop 0.8s ease-out;
 }
-
+#pageContent2{
+  max-width: 80vw;
+  max-height: 80vh;
+}
 .ya-dialog-content {
   transition: opacity 0.3s ease-in-out;
 }
@@ -1678,7 +1687,6 @@ dialog::backdrop {
   background-color: #ffb6c1;
   border: 2px solid #ff69b4;
   color: white;
-  font-family: 'Press Start 2P', cursive;
   font-size: 0.8rem;
   padding: 10px 14px;
   cursor: pointer;
@@ -2066,7 +2074,8 @@ dialog::backdrop {
     height: 28px;
   }
   #mainTitle { font-size: 20px; }
-  #subTitle { font-size: 14px; }
+  #subTitle { font-size: 1 rem;
+  color: rgb(61, 30, 9); }
 }
 
 
