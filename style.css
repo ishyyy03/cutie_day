@@ -415,13 +415,13 @@ body {
   max-height: 100%;
   cursor: pointer;
   object-fit: cover;
-
-  /* Center the image in the stack */
   transform: translate(-50%, -50%);
-  
-  /* Add shadow */
-
   transition: transform 1s ease, opacity 1s ease;
+}
+.polaroid3{
+  width: 94%;
+  border:5px #f19da1;
+  border-radius: 10px;
 }
 
 /* Tilted and slightly translated stack for better visibility */
