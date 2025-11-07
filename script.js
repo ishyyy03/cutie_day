@@ -386,7 +386,7 @@ async function startMicDetection() {
       const now = performance.now();
       // --- tuned threshold (experiment between 35–45) ---
 
-      if (average > 85 && now - lastTrigger > 1000) {
+      if (average > 45 && now - lastTrigger > 1000) {
         console.log("Blow detected, avg:", average);
         if (candlleslit) {
           subTitle.textContent = 'Yayyyyyyy!!!'
@@ -396,7 +396,7 @@ async function startMicDetection() {
           
 
         }
-      }else if(average > 65 && average<85 && now - lastTrigger > 1000){
+      }else if(average > 25 && average<45 && now - lastTrigger > 1000){
         console.log("Blow detected, avg:", average);
         subTitle.textContent = 'tch tch bunty hawa ni h pet me? \n zor se'
       }
@@ -1746,6 +1746,7 @@ function showNextPhoto() {
 
   polaroidStack.addEventListener('click', showNextPhoto);
 }
+
 
 
 
